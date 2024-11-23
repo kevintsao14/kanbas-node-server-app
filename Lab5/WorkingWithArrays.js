@@ -29,7 +29,6 @@ export default function WorkingWithArrays(app) {
     res.json(newTodo);
   });
 
-
   app.get("/lab5/todos/:id", (req, res) => {
     const { id } = req.params;
     const todo = todos.find((t) => t.id === parseInt(id));
