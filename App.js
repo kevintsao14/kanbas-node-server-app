@@ -2,7 +2,10 @@
 import HelloRoutes from "./Hello.js";
 import Lab5 from "./Lab5/index.js";
 import express from 'express';
-const app = express();
+import cors from "cors";
+const app = express()
+
+app.use(cors());
 
 HelloRoutes(app);
 Lab5(app);
