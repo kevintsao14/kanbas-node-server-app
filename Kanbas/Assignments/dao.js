@@ -17,3 +17,11 @@ export function deleteAssignment(assignmentId) {
     (assignment) => assignment._id !== assignmentId
   );
 }
+
+export function updateAssignment(assignmentId, assignmentUpdates) {
+  const { assignments } = Database;
+  const assignment = assignments.find((assignment) => assignment._id === assignmentId);
+  Object.assign(assignment, assignmentUpdates);
+  return assignment;
+}
+
