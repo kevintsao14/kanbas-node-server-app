@@ -30,11 +30,14 @@ const sessionOptions = {
       domain: process.env.REMOTE_SERVER,
     };
   }
-  app.use(session(sessionOptions));
+app.use(session(sessionOptions));
   
 app.use(express.json());
 
-
+app.use((req, res, next) => {
+  req.url = req.url.replace(/\/+/g, '/'); // Replace multiple slashes with a single slash
+  next();
+});
 
 // EnrollmentRoutes(app);
 UserRoutes(app);

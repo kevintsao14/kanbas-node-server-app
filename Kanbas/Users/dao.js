@@ -1,4 +1,5 @@
 import db from "../Database/index.js";
+import * as courseDao from "../Courses/dao.js";
 let { users } = db;
 export const createUser = (user) => {
  const newUser = { ...user, _id: Date.now().toString() };
