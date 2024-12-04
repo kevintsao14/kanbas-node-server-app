@@ -13,13 +13,15 @@ export function createModule(module) {
   // return newModule;
 }
 export function deleteModule(moduleId) {
-  const { modules } = Database;
-  Database.modules = modules.filter((module) => module._id !== moduleId);
+  return model.deleteOne({ _id: moduleId });
+  // const { modules } = Database;
+  // Database.modules = modules.filter((module) => module._id !== moduleId);
 }
 
 export function updateModule(moduleId, moduleUpdates) {
-  const { modules } = Database;
-  const module = modules.find((module) => module._id === moduleId);
-  Object.assign(module, moduleUpdates);
-  return module;
+  return model.updateOne({ _id: moduleId }, { $set: moduleUpdates });
+  // const { modules } = Database;
+  // const module = modules.find((module) => module._id === moduleId);
+  // Object.assign(module, moduleUpdates);
+  // return module;
 }
